@@ -1,2 +1,2 @@
 # FitProgress
-Fitness Tracking APp
+Fitness Tracking App
