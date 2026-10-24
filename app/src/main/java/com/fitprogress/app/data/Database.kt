@@ -112,16 +112,16 @@ abstract class FitProgressDatabase : RoomDatabase() {
                         super.onCreate(db)
                         CoroutineScope(Dispatchers.IO).launch {
                             val starters = listOf(
-                                "('Barbell Bench Press', 'CHEST', 'STRENGTH')",
-                                "('Lat Pulldown', 'BACK', 'STRENGTH')",
-                                "('Barbell Squat', 'LEGS', 'STRENGTH')",
-                                "('Deadlift', 'BACK', 'STRENGTH')",
-                                "('Overhead Press', 'SHOULDERS', 'STRENGTH')",
-                                "('Push-Up', 'CHEST', 'BODYWEIGHT')",
-                                "('Pull-Up', 'BACK', 'BODYWEIGHT')"
+                                "('Barbell Bench Press', 'CHEST', 'STRENGTH', 0)",
+                                "('Lat Pulldown', 'BACK', 'STRENGTH', 0)",
+                                "('Barbell Squat', 'LEGS', 'STRENGTH', 0)",
+                                "('Deadlift', 'BACK', 'STRENGTH', 0)",
+                                "('Overhead Press', 'SHOULDERS', 'STRENGTH', 0)",
+                                "('Push-Up', 'CHEST', 'BODYWEIGHT', 0)",
+                                "('Pull-Up', 'BACK', 'BODYWEIGHT', 0)"
                             )
                             starters.forEach {
-                                db.execSQL("INSERT INTO exercises (name, muscleGroup, exerciseType) VALUES $it;")
+                                db.execSQL("INSERT INTO exercises (name, muscleGroup, exerciseType, isArchived) VALUES $it;")
                             }
                         }
                     }
